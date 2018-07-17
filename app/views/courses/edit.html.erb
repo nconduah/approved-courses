@@ -1,0 +1,65 @@
+
+<h1>Edit Course</h1>
+
+<%= form_with (model: @course, local: true do |form| %>
+
+    <% if @course.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@course.errors.count, "error") %> prohibited
+          this article from being saved:
+        </h2>
+        <ul>
+          <% @course.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <p>
+      <%= form.label :number %><br>
+      <%= form.text_field :number %>
+    </p>
+
+    <p>
+      <%= form.label :title %><br>
+      <%= form.text_field :title %>
+    </p>
+    
+    <p>
+      <%= form.label :semester %><br>
+      <%= form.text_field :semester %>
+    </p>
+
+    <p>
+      <%= form.label :category %><br>
+      <%= form.text_field :category %>
+    </p>
+
+    <p>
+      <%= form.label :cataloglink %><br>
+      <%= form.text_field :cataloglink %>
+    </p>
+
+    <p>
+      <%= form.label :evaluationlink %><br>
+      <%= form.text_field :evaluationlink %>
+    </p>
+   
+    <p>
+      <%= form.label :recenttakers %><br>
+      <%= form.text_area :recenttakers %>
+    </p>
+
+    <p>
+      <%= form.label :notes %><br>
+      <%= form.text_area :notes %>
+    </p>
+   
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>
+
+  <%= link_to 'Back', courses_path %>

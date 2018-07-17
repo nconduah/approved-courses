@@ -1,0 +1,43 @@
+
+<p>
+  <strong>Number:</strong>
+  <%= @course.number %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @course.title %>
+</p>
+
+<p>
+  <strong>Semester:</strong>
+  <%= @course.semester %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @course.category %>
+</p>
+
+<p>
+  <strong>Cataloglink:</strong>
+  <%= @course.cataloglink %>
+</p>
+
+<p>
+  <strong>Evaluationlink:</strong>
+  <%= @course.evaluationlink %>
+</p>
+
+<p>
+  <strong>Recenttakers:</strong>
+  <%= @course.recenttakers %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @course.notes %>
+</p>
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>
