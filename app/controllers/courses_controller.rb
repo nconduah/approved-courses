@@ -1,5 +1,8 @@
 class CoursesController < ApplicationController
     
+    http_basic_authenticate_with name: "sdmstud", password: "sociotechnical", except: [:index, :show, :delete]
+    #http_basic_authenticate_with name: "sdmadmin", password: "rearchitect", except: [:index, :show]
+
     def index
         @courses = Course.all
     end
@@ -36,6 +39,18 @@ class CoursesController < ApplicationController
         else
             render 'edit'
         end
+    end
+
+    def destroy
+        @course = Course.find(params[:id])
+        @course.destroy
+
+        redirect_to courses_path
+    end
+
+    def import
+        Course.import(params[:file])
+        redirect_to root_url, notice: "Course Data Imported!"
     end
 
     private

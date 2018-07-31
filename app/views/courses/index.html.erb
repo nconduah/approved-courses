@@ -14,7 +14,7 @@
     <th></th>
   </tr>
 
-  <% @courses.each do |course| %>
+  <% @courses.order("number asc").each do |course| %>
     <tr>
       <td><%=  course.number %></td>
       <td><%=  course.title %></td>
@@ -26,6 +26,15 @@
       <td><%=  course.notes %></td>
       <td><%=  link_to 'Show', course_path(course) %></td>
       <td><%=  link_to 'Edit', edit_course_path(course) %></td>
+      <td><%=  link_to 'Delete', course_path(course), method: :delete, data: { confirm: 'Are you sure you want to delete this class?' } %></td>
     </tr>
   <% end %>
 </table>
+
+<div>
+  <h4>Import courses!</h4>
+  <%= form_tag import_courses_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import CSV" %>
+  <% end %>
+</div>
