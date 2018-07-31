@@ -9,7 +9,8 @@ class Course < ApplicationRecord
 
     validates :number, presence: true, length: { minimum: 4 }
     validates :title, presence: true, length: { minimum: 5 }
-    validates :semester, presence: true, length: { minimum: 4 }
+    validates :semester, presence: true, length: { minimum: 3 }
+    validates :units, presence: true, length: { minimum: 1 }
     validates :category, presence: true, length: { minimum: 5 }
     validates :cataloglink, presence: true, length: { minimum: 5 }
     validates :evaluationlink, presence: true, length: { minimum: 5 }
