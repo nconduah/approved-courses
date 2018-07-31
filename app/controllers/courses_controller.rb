@@ -4,7 +4,7 @@ class CoursesController < ApplicationController
     #http_basic_authenticate_with name: "sdmadmin", password: "rearchitect", except: [:index, :show]
 
     def index
-        @courses = Course.all
+        @courses = Course.order(params[:sort])
     end
     
     def show
